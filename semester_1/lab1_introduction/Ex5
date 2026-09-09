@@ -1,0 +1,13 @@
+#include <iostream>
+int main() {
+	int n;
+	std::cin >> n;
+	int f = 0;
+	std::cout << f << " ";
+	for (int i = 1; i <= n;) {
+		std::cout << i << " ";
+		i = f + i;
+		f = i - f;
+	}
+	return 0;
+}
