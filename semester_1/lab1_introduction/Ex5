@@ -1,6 +1,7 @@
 #include <iostream>
 int main() {
 	int n;
+std::cout << "Enter n: ";
 	std::cin >> n;
 	int f = 0;
 	std::cout << f << " ";
