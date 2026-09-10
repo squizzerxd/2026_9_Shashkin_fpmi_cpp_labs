@@ -4,6 +4,7 @@
 int main()
 {
     int n, m;
+std::cout << "Enter n: ";
     std::cin >> n >> m;
     if (n <= 0 ||m <= 0){
    std::cout << "n,m must be positive!";
