@@ -2,6 +2,7 @@
 
 int main() {
 	int n;
+std::cout << "Enter n: ";
 	std::cin >> n;
 	int a = n / 100000;
 	int b = n % 100000 / 10000;
