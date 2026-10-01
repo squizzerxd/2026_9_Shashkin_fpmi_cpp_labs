@@ -2,12 +2,10 @@
 #include <cstdlib>    
 const int MAX = 100'000;
 void razmer(int* n) {
-
 	std::cout << "Введите размер массива: ";
 	if (!(std::cin >> *n)) {
 		std::cout << "Введите число!";
 		std::exit(-1);
-
 	}
 	if (*n > MAX) {
 		std::cout << "Переполнение массива!" << std::endl;
@@ -21,16 +19,10 @@ void razmer(int* n) {
 		std::cout << "Ошибка!" << std::endl;
 		std::exit(-1);
 	}
-
-
-
 }
 void vibrat(int* vibor, int* n, int* arr) {
 	int a, b;
 	std::cout << "Способ заполнения массива:\n 1) Ручной ввод.\n 2) Рандомное заполнение. \n";
-
-
-
 	if (!(std::cin >> *vibor)) {
 		std::cout << "Неверный ввод!\nВведите 1 или 2!";
 	}
@@ -41,7 +33,6 @@ void vibrat(int* vibor, int* n, int* arr) {
 				std::cin >> arr[i];
 				if (arr[i] < 0) {
 					std::cout << "Ошибка!\n";
-
 					std::exit(-1);
 				}
 			}
@@ -50,28 +41,20 @@ void vibrat(int* vibor, int* n, int* arr) {
 
 				std::cout << arr[j] << " ";
 			}
-
 			std::cout << std::endl;
-
 		}
-
-
 		else
 			if (*vibor == 2) {
 				std::cout << "Введите границы интервала: ";
 				if (!(std::cin >> a) || !(std::cin >> b)) {
 					std::cout << "Введите число!";
 					std::exit(-1);
-
 				}
-
 				if (a > b) {
 					int temp = a;
 					a = b;
 					b = temp;
 				}
-
-
 				std::cout << "Заданный массив:\n";
 				for (int i = 0;i < *n;++i) {
 					arr[i] = a + rand() % (b - a + 1);
@@ -79,16 +62,12 @@ void vibrat(int* vibor, int* n, int* arr) {
 				}
 				std::cout << std::endl;
 			}
-
-
-
 			else if (*vibor != 1 && *vibor != 2) {
 				std::cout << "Неверный ввод!";
 				std::exit(-1);
 			}
 }
 void smena(int* n, int* arr) {
-
 	for (int i = 0;i < *n;++i) {
 		int temp = arr[i];
 		int count = 0;
@@ -100,7 +79,6 @@ void smena(int* n, int* arr) {
 			arr[i] = 0;
 		}
 	}
-
 }
 void peremeschenie(int* n, int* arr) {
 	int pos = 0;
@@ -120,7 +98,6 @@ void vivod(int* n, int* arr) {
 	for (int i = 0;i < *n;++i) {
 		std::cout << arr[i] << " ";
 	}
-
 }
 int main()
 {
