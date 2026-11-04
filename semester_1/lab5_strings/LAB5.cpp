@@ -2,13 +2,11 @@
 #include <string>
 #include <vector>
 
-using namespace std;
+bool isValidIP(const std::string& ip) {
+    std::vector<std::string> parts;
+    std::string part = "";
 
-bool isValidIP(const string& ip) {
-    vector<string> parts;
-    string part = "";
-
-    for (size_t i = 0; i <= ip.size(); ++i) {
+    for (std::size_t i = 0; i <= ip.size(); ++i) {
         if (i == ip.size() || ip[i] == '.') {
             parts.push_back(part);
             part = "";
@@ -20,7 +18,7 @@ bool isValidIP(const string& ip) {
     if (parts.size() != 4) return false;
 
     for (int j = 0; j < 4; ++j) {
-        string p = parts[j];
+        std::string p = parts[j];
 
         if (p.empty()) return false;
         if (p.size() > 1 && p[0] == '0') return false;
@@ -37,13 +35,17 @@ bool isValidIP(const string& ip) {
 }
 
 int main() {
-    string line;
-    getline(cin, line);
+    setlocale(LC_ALL, "Russian");
 
-    string word = "";
-    string result = "";
+    std::cout << "Введите строку с IP-адресами (через пробел): ";
+    
+    std::string line;
+    std::getline(std::cin, line);
 
-    for (size_t i = 0; i <= line.size(); ++i) {
+    std::string word = "";
+    std::string result = "";
+
+    for (std::size_t i = 0; i <= line.size(); ++i) {
         if (i == line.size() || line[i] == ' ') {
             if (!word.empty()) {
                 if (isValidIP(word)) {
@@ -57,6 +59,11 @@ int main() {
         }
     }
 
-    cout << result << endl;
+    if (!result.empty()) {
+        std::cout << "Найденные IP-адреса: " << result << std::endl;
+    } else {
+        std::cout << "Корректных IP-адресов не найдено." << std::endl;
+    }
+
     return 0;
 }
