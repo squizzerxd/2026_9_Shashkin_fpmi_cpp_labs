@@ -48,7 +48,7 @@ void vivodMatrix(int** arr, int n) {
 		std::cout << std::endl;
 	}
 }
-void CountAllTri(int** arr, int n, int* SumUp, int* SumDown, int* SumLeft, int* SumRight) {
+void CountAllTri(int** arr, int n, int& SumUp, int& SumDown, int& SumLeft, int& SumRight) {
 	
 	for (int i = 0;i < n;++i) {
 		for (int j = 0;j < n;++j) {
@@ -61,7 +61,7 @@ void CountAllTri(int** arr, int n, int* SumUp, int* SumDown, int* SumLeft, int* 
 	}
 }
 
-void vivodAllTri(int* SumUp, int* SumDown, int* SumLeft, int* SumRight) {
+void vivodAllTri(int SumUp, int SumDown, int SumLeft, int SumRight) {
 	std::cout << "Сумма элементов верхнего треугольника: " << *SumUp << std::endl;
 	std::cout << "Сумма элементов нижнего треугольника: " << *SumDown << std::endl;
 	std::cout << "Сумма элементов левого треугольника: " << *SumLeft << std::endl;
