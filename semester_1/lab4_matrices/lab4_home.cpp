@@ -43,29 +43,29 @@ void vivodMatrix(int** arr, int n) {
 	std::cout << "Текущая матрица:" << std::endl;
 	for (int i = 0;i < n;++i) {
 		for (int j = 0;j < n;++j) {
-			std::cout << std::setw(2) <<  arr[i][j] << " ";
+			std::cout << std::setw(2) << arr[i][j] << " ";
 		}
 		std::cout << std::endl;
 	}
 }
 void CountAllTri(int** arr, int n, int& SumUp, int& SumDown, int& SumLeft, int& SumRight) {
-	
+
 	for (int i = 0;i < n;++i) {
 		for (int j = 0;j < n;++j) {
 			if (i == j || i + j == n - 1) continue;
-			if (i < j && i + j < n - 1) *SumUp += arr[i][j];
-			else if (i > j && i + j > n - 1) *SumDown += arr[i][j];
-			else if (i < j && i + j > n - 1) *SumRight += arr[i][j];
-			else if (i > j && i + j < n - 1) *SumLeft += arr[i][j];
+			if (i < j && i + j < n - 1) SumUp += arr[i][j];
+			else if (i > j && i + j > n - 1) SumDown += arr[i][j];
+			else if (i < j && i + j > n - 1) SumRight += arr[i][j];
+			else if (i > j && i + j < n - 1) SumLeft += arr[i][j];
 		}
 	}
 }
 
 void vivodAllTri(int SumUp, int SumDown, int SumLeft, int SumRight) {
-	std::cout << "Сумма элементов верхнего треугольника: " << *SumUp << std::endl;
-	std::cout << "Сумма элементов нижнего треугольника: " << *SumDown << std::endl;
-	std::cout << "Сумма элементов левого треугольника: " << *SumLeft << std::endl;
-	std::cout << "Сумма элементов правого треугольника: " << *SumRight << std::endl;
+	std::cout << "Сумма элементов верхнего треугольника: " << SumUp << std::endl;
+	std::cout << "Сумма элементов нижнего треугольника: " << SumDown << std::endl;
+	std::cout << "Сумма элементов левого треугольника: " << SumLeft << std::endl;
+	std::cout << "Сумма элементов правого треугольника: " << SumRight << std::endl;
 
 }
 void deletearr(int** arr, int n) {
@@ -83,9 +83,9 @@ int main()
 	setlocale(LC_ALL, ".1251");
 	int n = SizeOfMatrix();
 	int** arr = pamyatMatrix(n);
-    FullMatrix(arr,n);
-	vivodMatrix(arr,n);
-    CountAllTri(arr,n,&SumUp,&SumDown,&SumLeft,&SumRight);
-	vivodAllTri(&SumUp, &SumDown, &SumLeft, &SumRight);
+	FullMatrix(arr, n);
+	vivodMatrix(arr, n);
+	CountAllTri(arr, n, SumUp, SumDown, SumLeft, SumRight);
+	vivodAllTri(SumUp, SumDown, SumLeft, SumRight);
 	deletearr(arr, n);
 }
